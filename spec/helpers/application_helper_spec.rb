@@ -12,7 +12,7 @@ describe ApplicationHelper do
 		end
 
 		it "should not include a bar for the home page" do
-			fulltitle("").should_not =~ /\|/
+			full_title("").should_not =~ /\|/
 		end
 	end
 end

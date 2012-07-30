@@ -25,7 +25,7 @@ describe User do
 	it { should respond_to(:password_digest) }
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
-	it { should respond_to(:authentication)}
+	it { should respond_to(:authenticate)}
 
 	it { should be_valid}
 
@@ -85,7 +85,7 @@ describe User do
 		it { should be_invalid }
 	end
 
-	describe "rerturn value of athentication method" do
+	describe "rerturn value of authentication method" do
 		before { @user.save }
 		let(:found_user) { User.find_by_email(@user.email) }
 
@@ -94,7 +94,7 @@ describe User do
 		end
 
 		describe "with invalid password" do
-			let(:user_for_invalid_password) { found_user.authentication("invalid") }
+			let(:user_for_invalid_password) { found_user.authenticate("invalid") }
 
 			it { should_not == user_for_invalid_password }
 			specify { user_for_invalid_password.should be_false }
